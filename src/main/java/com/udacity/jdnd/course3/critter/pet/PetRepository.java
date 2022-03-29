@@ -1,0 +1,13 @@
+package com.udacity.jdnd.course3.critter.pet;
+
+import com.udacity.jdnd.course3.critter.user.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface PetRepository extends JpaRepository<Pet,Long> {
+    public List<Pet> findAllPetsByCustomer(Customer customer);
+    public List<Pet> findByIdIn(List<Long> petIds);
+}
